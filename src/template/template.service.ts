@@ -14,12 +14,12 @@ export class TemplateService {
 
   async createtemp(createTemplateDto: CreateTemplateDto): Promise<temp> {
     const res = await new this.TempModel(createTemplateDto);
-    if(createTemplateDto.task && createTemplateDto.task.length>0){
-      for(const tsk of createTemplateDto.task){
-        const result = await this.createtask(tsk);
-        res.task.push(result);
-      }
-    }
+    // if(createTemplateDto.task && createTemplateDto.task.length>0){
+    //   for(const tsk of createTemplateDto.task){
+    //     const result = await this.createtask(tsk);
+    //     res.task.push(result);
+    //   }
+    // }
     return res.save();
 
   }

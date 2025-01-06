@@ -4,7 +4,6 @@ import {
   IsNotEmpty,
   IsString,
   MaxLength,
-  ArrayMinSize,
 } from 'class-validator';
 export class creattask {
   @IsString()
@@ -20,7 +19,6 @@ export class creattask {
   @IsEnum(['Manual','Dome'])
   Execution: string;
 
-  @ArrayMinSize(1)
   @IsArray()
   item: { name: string; state: boolean }[];
 }

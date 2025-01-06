@@ -9,7 +9,7 @@ export class temp{
     Description:string;
 
     @Prop({ type:[{type:String}], validate:[arr => arr.length> 0,"At least one task is Required"] } )
-    task:task[];
+    task:string[];
 
 }
 
@@ -27,7 +27,7 @@ export class task{
     @Prop({require:true , enum:['Manual','Dome']})
     execution:string;
 
-    @Prop({ type:[{type:String}], validate:[arr => arr.length> 0,"At least one task is Required"] } )
+    @Prop( )
     item:{name:string,status:boolean}[];
 
 }

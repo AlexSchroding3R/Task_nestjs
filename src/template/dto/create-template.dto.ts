@@ -5,7 +5,6 @@ import {
   MaxLength,
   ArrayMinSize,
 } from 'class-validator';
-import { creattask } from './create-task.dto';
 export class CreateTemplateDto {
   @IsString()
   @IsNotEmpty()
@@ -19,5 +18,5 @@ export class CreateTemplateDto {
 
   @IsArray()
   @ArrayMinSize(1)
-  task: creattask[];
+  task: string[];
 }
