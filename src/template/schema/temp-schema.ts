@@ -1,35 +1,46 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 @Schema()
+class Item {
+  @Prop({ required: true, type: String })
+  name: string;
+
+  @Prop({ required: true, type: String })
+  Scopeofwork: string;
+}
+@Schema()
 export class temp{
-    @Prop({require:true,unique:true,maxlength:150})
+    @Prop({required:true,unique:true,maxlength:150})
     name:string;
 
-    @Prop({require:true, maxlength:350})
+    @Prop({maxlength:350})
     Description:string;
 
-    @Prop({ type:[{type:String}], validate:[arr => arr.length> 0,"At least one task is Required"] } )
+    @Prop({ type:[{type:String}],required:true,
+         validate:[arr => arr.length> 0,"At least one task is Required"] } )
     task:string[];
 
 }
-
+    
 export const tempSchema = SchemaFactory.createForClass(temp);
 
 @Schema()
+export class task {
+  @Prop({ required: true, unique: true, maxlength: 150 })
+  name: string;
 
-export class task{
-    @Prop({require:true,unique:true,maxlength:150})
-    name:string;
+  @Prop({ required: true, maxlength: 350 })
+  Description: string;
 
-    @Prop({require:true, maxlength:350})
-    Description:string;
+  @Prop({ required: true, enum: ['Manual', 'Dome'] })
+  execution: string;
 
-    @Prop({require:true , enum:['Manual','Dome']})
-    execution:string;
-
-    @Prop( )
-    item:{name:string,status:boolean}[];
-
+  @Prop({
+    required: true,
+    type: [Item],
+    validate: [(val) => val.length > 0, 'Item array cannot be empty'],
+  })
+  item: Item[];
 }
 
 export const taskSchema = SchemaFactory.createForClass(task);

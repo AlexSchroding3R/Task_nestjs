@@ -17,8 +17,7 @@ import { task, taskSchema, temp, tempSchema } from './template/schema/temp-schem
       },
       {
         name:task.name,
-        schema:taskSchema,
-
+        schema:taskSchema, 
       },
     ]),
   ],

@@ -1,0 +1,19 @@
+JSON
+Template--
+{
+    "name":"xyz",
+    "Description":"OOOoOoOoOo",
+    "task":["task1"]
+    }
+
+Task--
+{
+    "name":"xyz",
+    "Description":"OOOoOoOoOo",
+    "execution":"Dome",                         //Manual/Dome
+    "item":[{
+        "name":"API",
+        "Scopeofwork":"An api Development"
+    }]
+    
+}    

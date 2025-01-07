@@ -5,6 +5,7 @@ import {
   MaxLength,
   ArrayMinSize,
 } from 'class-validator';
+
 export class CreateTemplateDto {
   @IsString()
   @IsNotEmpty()
