@@ -7,17 +7,18 @@ import {
 } from 'class-validator';
 
 export class CreateTemplateDto {
+  @MaxLength(150)
   @IsString()
   @IsNotEmpty()
-  @MaxLength(150)
   name: string;
 
+  @MaxLength(350)
   @IsString()
   @IsNotEmpty()
-  @MaxLength(350)
   Description: string;
 
   @IsArray()
   @ArrayMinSize(1)
+  @IsNotEmpty()
   task: string[];
 }

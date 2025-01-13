@@ -20,23 +20,24 @@ class Item {
   Scopeofwork: string;
 }
 export class creattask {
+  @MaxLength(150)
   @IsString()
   @IsNotEmpty()
-  @MaxLength(150)
   name: string;
 
+  @MaxLength(350)
   @IsString()
   @IsNotEmpty()
-  @MaxLength(350)
   Description: string;
 
-  @IsEnum(['Manual', 'Dome'], { message: "should be'Manual/Dome'" })
+  @IsEnum(['Manual', 'Dome'],{ message: "should be'Manual/Dome'" }) //
+  @IsNotEmpty()
   execution: string;
 
+  @ArrayMinSize(1)
+  @ValidateNested({ each: true })
+  @Type(() => Item) // Each object is transforming into item values
   @IsArray()
   @IsNotEmpty()
-  @ArrayMinSize(1)
-  @ValidateNested({ each: true }) 
-  @Type(() => Item) // Each object is transforming into item values
   item: Item[];
 }
